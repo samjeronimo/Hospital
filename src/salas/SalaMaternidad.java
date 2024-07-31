@@ -1,2 +1,4 @@
-package salas;public class SalaDeMaternidad {
+package salas;
+
+public class SalaMaternidad {
 }

@@ -1,2 +1,4 @@
-package personalAdministrativo;public class Secretaria {
+package personalAdministrativo;
+
+public class Secretaria {
 }

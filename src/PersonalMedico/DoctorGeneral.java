@@ -1,2 +1,4 @@
-package Personal;public class DoctorGeneral {
+package PersonalMedico;
+
+public class DoctorGeneral {
 }

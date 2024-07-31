@@ -1,2 +1,4 @@
-package salas;public class SalaDeHospitalizacionGeneral {
+package salas;
+
+public class SalaHospitalizacionGeneral {
 }

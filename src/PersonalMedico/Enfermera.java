@@ -1,2 +1,4 @@
-package Personal;public class Enfermera {
+package PersonalMedico;
+
+public class Enfermera {
 }

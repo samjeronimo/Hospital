@@ -1,2 +1,4 @@
-package salas;public class SalaDeCirugias {
+package salas;
+
+public class SalaCirugias {
 }
