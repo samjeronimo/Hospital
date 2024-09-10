@@ -1,7 +1,4 @@
-package PersonalMedico;
-
-
-import com.sun.org.apache.bcel.internal.generic.VariableLengthInstruction;
+package Hospital.model;
 
 import javax.swing.*;
 import java.awt.*;
