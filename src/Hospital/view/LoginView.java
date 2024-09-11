@@ -1,12 +1,14 @@
-import PersonalMedico.DoctorGeneral;
-import Data.bdDocotores;
+package Hospital.view;
+
+import Hospital.model.DoctorGeneral;
+import Hospital.servicies.bdDocotores;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Login extends JFrame {
+public class LoginView extends JFrame {
 
-    public Login(){
+    public LoginView(){
 
         //CONFIGURACIÓN DE MI VENTANA
         this.setLocationRelativeTo(null);
@@ -21,7 +23,7 @@ public class Login extends JFrame {
         JPanel panel1 = new JPanel(new GridBagLayout());
         panel1.setBackground(Color.white);
 
-        ImageIcon urling = new ImageIcon(getClass().getResource("img/imagen_de_hospital.jpg"));
+        ImageIcon urling = new ImageIcon(getClass().getResource("resources/imagen_de_hospital.jpg"));
         JLabel img = new JLabel();
         img.setIcon(urling);
 
@@ -59,7 +61,7 @@ public class Login extends JFrame {
 
 
         //BOTÓN
-        JButton boton = new JButton("Login");
+        JButton boton = new JButton("view.Login");
         boton.setPreferredSize(new Dimension(100,25));
         restricciones.gridy = 4;
         restricciones.gridx = 0;

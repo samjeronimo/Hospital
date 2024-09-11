@@ -1,12 +1,9 @@
-import PersonalMedico.DoctorGeneral;
-
-import javax.swing.*;
-import java.awt.*;
+import Hospital.view.LoginView;
 
 public class Main {
     public static void main(String[] args) {
 
-        Login login = new Login();
+        LoginView doctor = new LoginView();
 
     }
 }

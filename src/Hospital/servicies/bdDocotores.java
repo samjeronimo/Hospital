@@ -1,4 +1,4 @@
-package Data;
+package Hospital.servicies;
 
 public class bdDocotores {
 
