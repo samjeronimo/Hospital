@@ -5,93 +5,65 @@ import Hospital.servicies.bdDocotores;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class LoginView extends JFrame {
 
     public LoginView(){
 
-        //CONFIGURACIÓN DE MI VENTANA
+        this.setSize(500, 600);
         this.setLocationRelativeTo(null);
-        this.setBounds(0,0,1600,1000);
 
 
-
-        //PANEL PRINCIPAL
-        JPanel mainPanel = new JPanel(new GridLayout(1,2));
-
-        //PANEL DEL BANNER
-        JPanel panel1 = new JPanel(new GridBagLayout());
-        panel1.setBackground(Color.white);
-
-        ImageIcon urling = new ImageIcon(getClass().getResource("resources/imagen_de_hospital.jpg"));
-        JLabel img = new JLabel();
-        img.setIcon(urling);
-
-        panel1.add(img);
+        JPanel mainPanel = new JPanel(new GridLayout(1, 1));
 
 
-        //SEGUNDO PANEL
         JPanel panel2 = new JPanel(new GridBagLayout());
         panel2.setBackground(Color.white);
 
-        //RESTRICCIONES
+
         GridBagConstraints restricciones = new GridBagConstraints();
+        restricciones.insets = new Insets(15, 7, 15, 7);
         restricciones.gridx = 0;
         restricciones.gridy = 0;
 
-        JLabel user = new JLabel("Correo");
-        panel2.add(user, restricciones);
+        JLabel correo = new JLabel("Correo:");
+        panel2.add(correo, restricciones);
 
-        JTextField usuario = new JTextField();
-        usuario.setPreferredSize(new Dimension(350, 40));
         restricciones.gridx = 0;
         restricciones.gridy = 1;
-        panel2.add(usuario, restricciones);
 
-        JLabel contra = new JLabel("Password");
-        restricciones.gridy = 2;
+        JTextField user = new JTextField();
+        restricciones.gridx = 1;
+        restricciones.gridy = 0;
+        user.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.GRAY));
+        user.setPreferredSize(new Dimension(150, 30));
+        panel2.add(user, restricciones);
+
         restricciones.gridx = 0;
+        restricciones.gridy = 2;
+        JLabel contra = new JLabel("Contraseña:");
         panel2.add(contra, restricciones);
 
-        JPasswordField password = new JPasswordField();
-        password.setPreferredSize(new Dimension(350,40));
-        restricciones.gridx = 0;
-        restricciones.gridy = 3;
-        panel2.add(password, restricciones);
+        restricciones.gridx = 1;
+        restricciones.gridy = 2;
+        JPasswordField pass = new JPasswordField();
+        pass.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.GRAY));
+        pass.setPreferredSize(new Dimension(150, 30));
+        panel2.add(pass, restricciones);
 
-
-        //BOTÓN
-        JButton boton = new JButton("view.Login");
-        boton.setPreferredSize(new Dimension(100,25));
+        restricciones.gridx = 1;
         restricciones.gridy = 4;
-        restricciones.gridx = 0;
-        panel2.add(boton, restricciones);
+        JButton btn = new JButton("Iniciar Sesión");
+        btn.setBackground(new Color(116, 116, 116));
+        btn.setForeground(new Color(255, 255, 255));
+        panel2.add(btn, restricciones);
 
 
-        //ACCIÓN DEL BOTÓN
-        boton.addActionListener(e -> {
 
-            if (bdDocotores.user[0].equalsIgnoreCase(usuario.getText())){
-                if (bdDocotores.pass[0].equalsIgnoreCase(password.getText())){
-                    DoctorGeneral userDoctor = new DoctorGeneral();
-                }
-            }else {
-                JLabel msjError = new JLabel("Error de Correo");
-                msjError.setForeground(Color.RED);
-                mainPanel.add(msjError);
-            }
-
-            mainPanel.revalidate();
-            mainPanel.repaint();
-
-        });
-
-
-        mainPanel.add(panel1);
         mainPanel.add(panel2);
 
         this.add(mainPanel);
         this.setVisible(true);
-
     }
 }
