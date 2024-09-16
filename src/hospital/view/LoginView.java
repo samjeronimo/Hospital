@@ -1,19 +1,19 @@
-package Hospital.view;
-
-import Hospital.model.DoctorGeneral;
-import Hospital.servicies.bdDocotores;
+package hospital.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.awt.event.ActionListener;
 
 public class LoginView extends JFrame {
+
+    private JTextField user;
+    private JPasswordField pass;
+    private JButton btn;
 
     public LoginView(){
 
         this.setSize(500, 600);
         this.setLocationRelativeTo(null);
-
 
         JPanel mainPanel = new JPanel(new GridLayout(1, 1));
 
@@ -29,11 +29,10 @@ public class LoginView extends JFrame {
 
         JLabel correo = new JLabel("Correo:");
         panel2.add(correo, restricciones);
-
         restricciones.gridx = 0;
         restricciones.gridy = 1;
 
-        JTextField user = new JTextField();
+        user = new JTextField();
         restricciones.gridx = 1;
         restricciones.gridy = 0;
         user.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.GRAY));
@@ -47,14 +46,14 @@ public class LoginView extends JFrame {
 
         restricciones.gridx = 1;
         restricciones.gridy = 2;
-        JPasswordField pass = new JPasswordField();
+        pass = new JPasswordField();
         pass.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, Color.GRAY));
         pass.setPreferredSize(new Dimension(150, 30));
         panel2.add(pass, restricciones);
 
         restricciones.gridx = 1;
         restricciones.gridy = 4;
-        JButton btn = new JButton("Iniciar Sesión");
+        btn = new JButton("Iniciar Sesión");
         btn.setBackground(new Color(116, 116, 116));
         btn.setForeground(new Color(255, 255, 255));
         panel2.add(btn, restricciones);
@@ -66,4 +65,17 @@ public class LoginView extends JFrame {
         this.add(mainPanel);
         this.setVisible(true);
     }
+
+    public String getUser(){
+        return user.getText();
+    }
+
+    public JPasswordField getPass() {
+        return pass;
+    }
+
+    public void addLoginListener(ActionListener listener){
+        btn.addActionListener(listener);
+    }
+
 }
