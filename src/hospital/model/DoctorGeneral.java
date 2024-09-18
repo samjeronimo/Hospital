@@ -1,4 +1,4 @@
-package Hospital.model;
+package hospital.model;
 
 import javax.swing.*;
 import java.awt.*;
@@ -147,5 +147,71 @@ public class DoctorGeneral extends JFrame {
 
         this.add(mainPanel);
         this.setVisible(true);
+    }
+
+
+    private String nombre;
+    private String user;
+    private String correo;
+    private String contrasenna;
+    private String cargo;
+
+    public DoctorGeneral(String nombre, String correo, String cargo, String user, String contrasenna) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.cargo = cargo;
+        this.user = user;
+        this.contrasenna = contrasenna;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String especialidad) {
+        this.cargo = especialidad;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String usuario) {
+        this.user = usuario;
+    }
+
+    public String getContrasenna() {
+        return contrasenna;
+    }
+
+    public void setContrasenna(String contrasenna) {
+        this.contrasenna = contrasenna;
+    }
+
+    @Override
+    public String toString() {
+        return "DoctorGeneral{" +
+                "nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", especialidad='" + cargo + '\'' +
+                ", usuario='" + user + '\'' +
+                ", contraseña='" + contrasenna + '\'' +
+                '}';
     }
 }

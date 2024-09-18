@@ -64,6 +64,7 @@ public class LoginView extends JFrame {
 
         this.add(mainPanel);
         this.setVisible(true);
+
     }
 
     public String getUser(){
@@ -77,5 +78,6 @@ public class LoginView extends JFrame {
     public void addLoginListener(ActionListener listener){
         btn.addActionListener(listener);
     }
+
 
 }

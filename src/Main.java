@@ -1,6 +1,8 @@
 import javax.swing.*;
 
+import backEnde.BackEnde;
 import hospital.controller.LoginController;
+import hospital.services.DataDoctores;
 import hospital.view.DoctorView;
 import hospital.view.LoginView;
 
@@ -8,9 +10,14 @@ public class Main extends JFrame {
     public static void main(String[] args) {
 
 
-    LoginView login = new LoginView();
+        LoginView view = new LoginView();
 
-    LoginController controller = new LoginController(login);
+        DataDoctores dataDoc = new DataDoctores();
+
+        BackEnde back = new BackEnde(dataDoc);
+
+        LoginController controller = new LoginController(view, back);
+
 
     new DoctorView();
     }
