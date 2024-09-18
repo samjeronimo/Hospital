@@ -3,6 +3,7 @@ import javax.swing.*;
 import backEnde.BackEnde;
 import hospital.controller.LoginController;
 import hospital.services.DataDoctores;
+import hospital.view.DoctorView;
 import hospital.view.LoginView;
 
 public class Main extends JFrame {
@@ -18,5 +19,6 @@ public class Main extends JFrame {
         LoginController controller = new LoginController(view, back);
 
 
+    new DoctorView();
     }
 }
