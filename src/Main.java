@@ -12,13 +12,11 @@ public class Main extends JFrame {
 
         LoginView view = new LoginView();
 
-        DataDoctores dataDoc = new DataDoctores();
 
-        BackEnde back = new BackEnde(dataDoc);
+        BackEnde back = new BackEnde();
 
-        LoginController controller = new LoginController(view, back);
+        LoginController controller = new LoginController(view);
 
 
-    new DoctorView();
     }
 }

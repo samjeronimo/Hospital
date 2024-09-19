@@ -1,18 +1,19 @@
 package hospital.controller;
 
 import backEnde.BackEnde;
-import hospital.model.DoctorGeneral;
 import hospital.view.LoginView;
+import hospital.view.DoctorView;
 
 import javax.swing.*;
+import java.util.HashMap;
 
 public class LoginController {
     private LoginView loginView;
-    private BackEnde Ende;
+    private BackEnde backEnde;
 
-    public LoginController(LoginView loginView, BackEnde ende) {
+    public LoginController(LoginView loginView) {
         this.loginView = loginView;
-        this.Ende = ende;
+        this.backEnde = backEnde;
         this.loginView.addLoginListener(e -> verificarLogin());
     }
 
@@ -20,15 +21,20 @@ public class LoginController {
         String use = loginView.getUser();
         JPasswordField codigo = loginView.getPass();
 
-        DoctorGeneral doc = BackEnde.validarDatos(use, codigo);
+        BackEnde credenciales = new BackEnde();
+        HashMap<String, String > doctores = credenciales.validarDatos(use, codigo);
 
-        if (doc != null) {
-            System.out.println("Estan en:");
-            System.out.println("Correo: " + doc.getCorreo());
-            System.out.println("Contraseña: " + doc.getContrasenna());
-            System.out.println("Cargo: " + doc.getCargo());
-        } else {
-            System.out.println("Error: Los datos son incorrectos");
+        if (!doctores.containsKey("Error")){
+            System.out.println("Error: " + doctores.get("Error"));
+        }else {
+            String Doctor = doctores.get("Nombre");
+            String especialidad = doctores.get("Especialidad");
+
+            HashMap<String, String> loginDoctor = new HashMap<>();
+            loginDoctor.put("Nombre", Doctor);
+            loginDoctor.put("Especialidad", especialidad);
+
+            new DoctorView(doctores);
         }
     }
 

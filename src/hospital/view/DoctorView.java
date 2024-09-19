@@ -2,12 +2,13 @@ package hospital.view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
 public class DoctorView extends JFrame {
 
     private int[] pantalla = {1300, 800};
 
-    public DoctorView() {
+    public DoctorView(HashMap<String, String>dataDoctores1) {
 
         setSize(pantalla[0], pantalla[1]);
 
@@ -45,13 +46,17 @@ public class DoctorView extends JFrame {
         diseno.setBackground(Color.DARK_GRAY);
 
 
-        JLabel nombreDoctor = new JLabel("Samuel Jerónimo");
+
+        String Nombre = dataDoctores1.get("Nombre");
+        String Especilidad = dataDoctores1.get("Especialidad");
+
+        JLabel nombreDoctor = new JLabel(Nombre);
         nombreDoctor.setForeground(Color.WHITE);
         nombreDoctor.setFont(new Font("Arial", Font.BOLD, 14));
         nombreDoctor.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
 
-        JLabel especialidad = new JLabel("Doctor General");
+        JLabel especialidad = new JLabel(Especilidad);
         especialidad.setForeground(Color.LIGHT_GRAY);
         especialidad.setFont(new Font("Arial", Font.PLAIN, 12));
         especialidad.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
