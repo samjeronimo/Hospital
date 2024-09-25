@@ -1,14 +1,19 @@
 package hospital.view;
 
+import hospital.model.Pacientes;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DoctorView extends JFrame {
 
     private int[] pantalla = {1300, 800};
+    private ArrayList<Pacientes> listaPacientes;
 
-    public DoctorView(HashMap<String, String>dataDoctores1) {
+    public DoctorView(HashMap<String, String>dataDoctores1, ArrayList<Pacientes> listaPacientes) {
+        this.listaPacientes = listaPacientes;
 
         setSize(pantalla[0], pantalla[1]);
 
@@ -74,6 +79,10 @@ public class DoctorView extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        PacienteView pacienteView = new PacienteView(listaPacientes);
+        JPanel panelPaciente = pacienteView.panelPaciente(listaPacientes);
+        this.add(panelPaciente, BorderLayout.CENTER);
+
         setVisible(true);
     }
 
@@ -102,7 +111,7 @@ public class DoctorView extends JFrame {
         return menuPanel;
     }
 
-    private JButton op (String texto){
+    private JButton op (String texto) {
         JButton op = new JButton(texto);
 
         op.addActionListener(e -> {
