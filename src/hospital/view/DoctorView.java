@@ -1,14 +1,19 @@
 package hospital.view;
 
+import hospital.model.Pacientes;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DoctorView extends JFrame {
 
     private int[] pantalla = {1300, 800};
+    private ArrayList<Pacientes> listaPacientes;
 
-    public DoctorView(HashMap<String, String>dataDoctores1) {
+    public DoctorView(HashMap<String, String>dataDoctores1, ArrayList<Pacientes> listaPacientes) {
+        this.listaPacientes = listaPacientes;
 
         setSize(pantalla[0], pantalla[1]);
 
@@ -74,6 +79,10 @@ public class DoctorView extends JFrame {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        PacienteView pacienteView = new PacienteView(listaPacientes);
+        JPanel panelPaciente = pacienteView.panelPaciente(listaPacientes);
+        this.add(panelPaciente, BorderLayout.CENTER);
+
         setVisible(true);
     }
 
@@ -92,17 +101,17 @@ public class DoctorView extends JFrame {
         gbc.gridx = 0;
 
 
-        menu.add(op("Opcion 1"), gbc);
-        menu.add(op("Opcion 2"), gbc);
-        menu.add(op("Opcion 3"), gbc);
-        menu.add(op("Opcion 4"), gbc);
-        menu.add(op("Opcion 5"), gbc);
+        menu.add(op("Consultas del Día"), gbc);
+        menu.add(op("Salas"), gbc);
+        menu.add(op("Farmacia"), gbc);
+        menu.add(op("Pacientes registrados"), gbc);
+        menu.add(op("Citar en otra area"), gbc);
 
         menuPanel.add(menu);
         return menuPanel;
     }
 
-    private JButton op (String texto){
+    private JButton op (String texto) {
         JButton op = new JButton(texto);
 
         op.addActionListener(e -> {
