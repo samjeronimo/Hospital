@@ -74,7 +74,10 @@ public class DoctorView extends JFrame {
         userPanel.add(logoPanel, BorderLayout.WEST);
         userPanel.add(diseno, BorderLayout.CENTER);
 
+
         headerPanel.add(userPanel, BorderLayout.EAST);
+
+
 
         add(headerPanel, BorderLayout.NORTH);
         add(componeteMenuLateral(),BorderLayout.WEST);
@@ -114,101 +117,26 @@ public class DoctorView extends JFrame {
     }
 
     private JButton op (String texto) {
-        JButton op = new JButton("salas");
+        JButton op = new JButton(texto);
 
-        op.addActionListener(e -> {
-            CardLayout cl = (CardLayout) mainPanel.getLayout();
-            cl.show(mainPanel, "Salas");
-        });
+        /*op.addActionListener(e -> {
+            CardLayout cl = (CardLayout) (panelPaciente.getLayaut());
+
+            switch (texto){
+                case "Salas" :
+                    panelPaciente.add(SalasView.panelSala("Nombre", "Estado"), "Salas");
+                    cl.show(panelCentral, "Salas");
+                case "Farmacia":
+                    panelCentral.add(FarmaciasView.panelPaciente(llm), "Farmacia");
+                    cl.show(panelCentral, "Farmcia");
+                case "Pacientes registrados":
+                    cl.show(panelCentral, "Pacientes");
+                    break;
+            }
+
+
+        });*/
 
         return op;
     }
-
-    private JPanel panelSalas() {
-        JPanel panel1 = new JPanel();
-        panel1.setLayout(new BorderLayout());
-        panel1.setBackground(Color.white);
-
-        JLabel titulo = new JLabel("Salas", SwingConstants.LEFT);
-        titulo.setFont(new Font("Arial", Font.BOLD, 12));
-        titulo.setBorder(new EmptyBorder(10, 20, 10, 10));
-        titulo.setForeground(Color.gray);
-
-        JPanel panelSalas = new JPanel();
-        panelSalas.setLayout(new GridLayout(3, 4, 20, 20));
-        panelSalas.setBackground(Color.white);
-
-        panelSalas.add(Panel("Sala de Emergencias", "En uso"));
-        panelSalas.add(Panel("Sala de Cirugía", "Fuera de servicio"));
-        panelSalas.add(Panel("Sala de Pediatría", "Disponible"));
-        panelSalas.add(Panel("Sala de Ginecología", "En uso"));
-        panelSalas.add(Panel("Sala de Oncología", "Disponible"));
-        panelSalas.add(Panel("Sala de Terapia Intensiva", "Fuera de servicio"));
-        panelSalas.add(Panel("Sala de Maternidad", "En uso"));
-        panelSalas.add(Panel("Sala de Radiología", "Disponible"));
-        panelSalas.add(Panel("Sala de Hospitalización", "En uso"));
-        panelSalas.add(Panel("Sala de Consulta Externa", "Fuera de servicio"));
-        panelSalas.add(Panel("Sala de Neonatología", "Disponible"));
-        panelSalas.add(Panel("Sala de Recuperación", "En uso"));
-
-        panelSalas.setBorder(new EmptyBorder(20, 20, 20, 20));
-
-        panel1.add(titulo, BorderLayout.NORTH);
-        panel1.add(panelSalas, BorderLayout.CENTER);
-
-        return panel1;
-    }
-
-    private JPanel Panel(String nombre, String estado) {
-        JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
-        panel.setPreferredSize(new Dimension(150, 150));
-
-
-        switch (nombre) {
-            case "Sala de Emergencias":
-            case "Sala de Radiología":
-                panel.setBackground(new Color(255, 102, 102));
-                break;
-            case "Sala de Cirugía":
-            case "Sala de Pediatría":
-
-                panel.setBackground(new Color(255, 255, 153));
-                break;
-            case "Sala de Consulta Externa":
-            case "Sala de Terapia Intensiva":
-            case "Sala de Maternidad":
-                panel.setBackground(new Color(153, 255, 153));
-                break;
-            case "Sala de Ginecología":
-            case "Sala de Oncología":
-            case "Sala de Hospitalización":
-            case "Sala de Neonatología":
-            case "Sala de Recuperación":
-            default:
-                panel.setBackground(Color.white);
-                panel.setBorder(BorderFactory.createLineBorder(Color.gray, 1));
-                break;
-
-
-        }
-
-        JLabel title = new JLabel(nombre, SwingConstants.CENTER);
-        title.setFont(new Font("Arial", Font.PLAIN, 16));
-        panel.add(title, BorderLayout.CENTER);
-
-        return panel;
-    }
-
-    /*public static void main(String[] args) {
-        HashMap<String, String> datos = new HashMap<>();
-        datos.put("nombre doctor", "Dr. Juan Pérez");
-        datos.put("especialidad", "Cardiología");
-
-        SwingUtilities.invokeLater(() -> {
-            DoctorView doctorView = new DoctorView(datos);
-            doctorView.setVisible(true);
-        });
-    }*/
-
 }
