@@ -14,11 +14,9 @@ public class Main extends JFrame {
 
         DataDoctores dataDoc = new DataDoctores();
 
-        BackEnde back = new BackEnde(dataDoc);
+        BackEnde back = new BackEnde();
 
-        LoginController controller = new LoginController(view, back);
+        LoginController controller = new LoginController(view);
 
-
-    new DoctorView();
     }
 }
