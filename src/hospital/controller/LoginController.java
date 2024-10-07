@@ -1,11 +1,9 @@
 package hospital.controller;
 
 import backEnde.BackEnde;
-import hospital.model.DoctorGeneral;
 import hospital.view.DoctorView;
 import hospital.view.LoginView;
 
-import javax.swing.*;
 import java.util.HashMap;
 
 public class LoginController {
@@ -17,9 +15,10 @@ public class LoginController {
     }
 
     private void verificarLogin() {
+
         HashMap validar = BackEnde.validarDatos(loginView.getUser(), loginView.getName());
 
-        DoctorView doctorView = new DoctorView();
+        DoctorView doctorView = new DoctorView(validar);
         loginView.dispose();
     }
 

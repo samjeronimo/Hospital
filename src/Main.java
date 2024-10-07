@@ -18,5 +18,6 @@ public class Main extends JFrame {
 
         LoginController controller = new LoginController(view);
 
+
     }
 }
